@@ -1,0 +1,3 @@
+project=air_monitor
+test=rspec
+template=erb

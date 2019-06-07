@@ -1,0 +1,2 @@
+module AirMonitor
+end
