@@ -11,14 +11,10 @@
 #     exact_location: 0,
 #     country:        'de'
 #   }
-class AirSensor < Sequel::Model
-  class Location < Sequel::Model
-
-    def initialize(data = {})
-      @attributes = data.symbolize_keys
-    end
-
-  end
-end
+# class AirSensor < Sequel::Model
+#   class Location < Sequel::Model
+#
+#   end
+# end
 
 

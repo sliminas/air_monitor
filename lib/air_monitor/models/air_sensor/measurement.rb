@@ -15,10 +15,10 @@
 #     }
 #   ]
 # }
-class AirSensor < Sequel::Model
-  class Measurement < Sequel::Model
-
-  end
-end
+# class AirSensor < Sequel::Model
+#   class Measurement < Sequel::Model
+#
+#   end
+# end
 
 

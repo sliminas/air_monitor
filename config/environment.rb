@@ -3,8 +3,9 @@ require 'hanami/setup'
 require_relative 'database'
 require_relative '../apps/web/application'
 
-DB = connect_sequel
-check_pending_migrations
+Database.load_plugins
+DB = Database.connect
+Database.check_pending_migrations
 
 Hanami.configure do
   mount Web::Application, at: '/'

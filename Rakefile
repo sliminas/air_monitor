@@ -15,7 +15,7 @@ namespace :db do
 
   require 'sequel/core'
   require_relative 'config/database'
-  DB = connect_sequel log_file: $stdout
+  DB = Database.connect log_file: $stdout
   Sequel.extension :migration
 
   desc 'Prints current schema version'
