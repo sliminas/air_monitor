@@ -1,6 +1,8 @@
 class GeoLocation < Sequel::Model
 
-  one_to_many :air_sensor
+  plugin :update_or_create
+
+  many_to_one :air_sensor
 
   def to_s
     "#{latitude},#{longitude}"

@@ -36,32 +36,24 @@
 #     }
 #   ]
 # }
-module Representers
-  class AirSensor < Sequel::Model
-    class Data < ::Representable::Decorator
-
-      include Representable::JSON
-
-      collection_representer class: ::AirSensor::Data
-
-      property :air_sensor, as: :sensor, class: ::AirSensor do
-        property :luftdaten_id, as: :id
-      end
-
-      property :geo_location, as: :location, class: ::GeoLocation do
-        property :luftdaten_id, as: :id
-        property :longitude
-        property :latitude
-      end
-
-      collection :measurements, as: :sensordatavalues, class: ::AirSensor::Measurement do
-        property :luftdaten_id, as: :id
-        property :type,         as: :value_type
-        property :value
-      end
-
-      property :time, as: :timestamp
-
-    end
-  end
-end
+# module Representers
+#   class AirSensor < ::Representable::Decorator
+#
+#     include Representable::JSON
+#
+#     collection_representer class: ::AirSensor
+#
+#     nested :sensor do
+#       property :luftdaten_id, as: :id, instance: ->(fragment) {
+#         binding.pry
+#         ::AirSensor.update_or_create(luftdaten_id: fragment[:doc]['id'])
+#       }
+#     end
+#
+#     property :geo_location, as: :location, class: ::GeoLocation do
+#       property :longitude
+#       property :latitude
+#     end
+#
+#   end
+# end

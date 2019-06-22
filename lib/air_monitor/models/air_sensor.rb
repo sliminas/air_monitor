@@ -24,7 +24,10 @@
 #   id:               3_858_596_544,
 class AirSensor < Sequel::Model
 
+  plugin :update_or_create
+
   one_to_one :geo_location
+  one_to_many :measurements, class: 'AirSensor::Measurement'
 
 end
 

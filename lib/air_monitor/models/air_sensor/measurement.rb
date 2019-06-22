@@ -15,10 +15,14 @@
 #     }
 #   ]
 # }
-# class AirSensor < Sequel::Model
-#   class Measurement < Sequel::Model
-#
-#   end
-# end
+class AirSensor < Sequel::Model
+  class Measurement < Sequel::Model(DB[:air_sensor_measurements])
+
+    plugin :update_or_create
+
+    many_to_one :air_sensor
+
+  end
+end
 
 
