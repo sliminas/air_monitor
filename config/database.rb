@@ -6,15 +6,10 @@ class Database
   class << self
 
     def connect(log_file: 'log/sequel.log')
-      Sequel.connect(
-        adapter:         'postgres',
-        host:            'localhost',
-        database:        'air_monitor_development',
-        user:            'rails',
-        password:        'rails',
-        max_connections: 10,
-        logger:          Logger.new(log_file)
-      )
+      connection = ENV['DATABASE_URL'] ||
+        'postgres://rails:rails@localhost/air_monitor_development'
+
+      Sequel.connect(connection, max_connections: 10, logger: Logger.new(log_file))
     end
 
     def check_pending_migrations
