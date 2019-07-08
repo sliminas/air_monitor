@@ -5,7 +5,8 @@ class Database
 
   class << self
 
-    def connect(log_file: 'log/sequel.log')
+    def connect(log_file: nil)
+      log_file ||= 'log/sequel.log'
       log_dir = log_file.split('/')[0..-2].join('/')
       FileUtils.mkdir(log_dir) unless File.exist?(log_dir)
 
