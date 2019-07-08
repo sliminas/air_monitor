@@ -9,6 +9,7 @@ gem 'sequel'
 gem 'pg'
 
 gem 'http'
+gem 'sentry-raven'
 
 gem 'sass'
 gem 'slim'
