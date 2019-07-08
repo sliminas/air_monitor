@@ -6,6 +6,8 @@ class Database
   class << self
 
     def connect(log_file: 'log/sequel.log')
+      FileUtils.mkdir('log')
+
       connection = ENV['DATABASE_URL'] ||
         'postgres://rails:rails@localhost/air_monitor_development'
 
