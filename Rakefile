@@ -15,7 +15,7 @@ namespace :db do
 
   require 'sequel/core'
   require_relative 'config/database'
-  DB = Database.connect log_file: ($stdout if Hanami.env == 'development')
+  DB = Database.connect log_file: ($stdout unless ENV['RACK_ENV'] == 'production')
   Sequel.extension :migration
 
   desc 'Prints current schema version'
