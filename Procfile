@@ -1,2 +1,2 @@
 web: bundle exec hanami server -p $PORT --no-code-reloading
-release: bundle exec rake db:migrate
+release: bundle exec rake db:migrate && bundle exec hanami assets precompile
