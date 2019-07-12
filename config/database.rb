@@ -7,8 +7,10 @@ class Database
 
     def connect(log_file: nil)
       log_file ||= 'log/sequel.log'
-      log_dir = log_file.split('/')[0..-2].join('/')
-      FileUtils.mkdir(log_dir) unless File.exist?(log_dir)
+      if log_file.is_a?(String)
+        log_dir = log_file.split('/')[0..-2].join('/')
+        FileUtils.mkdir(log_dir) unless File.exist?(log_dir)
+      end
 
       connection = ENV['DATABASE_URL'] ||
         'postgres://rails:rails@localhost/air_monitor_development'
