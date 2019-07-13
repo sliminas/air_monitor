@@ -23,10 +23,7 @@ Hanami.configure do
   end
 
   environment :production do
-    logger level: :debug, formatter: :json, filter: []
-    assets do
-      fingerprint true
-    end
+    logger level: :info, formatter: :json, filter: []
 
     # mailer do
     #   delivery :smtp, address: ENV.fetch('SMTP_HOST'), port: ENV.fetch('SMTP_PORT')

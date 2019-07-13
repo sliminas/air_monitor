@@ -1,6 +1,10 @@
 html
   head
     title Air Sensors
+    - Hanami.logger.info Hanami::Assets.configuration.inspect
+    - Hanami.logger.info Hanami::Assets.configuration.manifest_path
+    - Hanami.logger.info File.exist?(Hanami::Assets.configuration.manifest_path)
+
     = favicon
 
     link { rel="stylesheet"
