@@ -1,0 +1,29 @@
+h1 Sensors
+
+div
+  table.table.table-striped.table-bordered
+    thead
+      tr
+        th ID
+        th LuftID
+        th Latitude
+        th Longitude
+        th P1
+        th P2
+        th Temp
+        th Humidity
+    tbody
+      - AirSensor.all.each do |sensor|
+        tr
+          td = link_to sensor.id, routes.sensor_path(sensor.id)
+          td = sensor.luftdaten_id
+          td = sensor.geo_location&.latitude
+          td = sensor.geo_location&.longitude
+          - { P1: '', P2: '', temperature: '°C', humidity: ' %' }.each do |type, unit|
+            - measurement = sensor.measurements.detect { |measurement| measurement.type = type.to_s }
+            td
+              - if value = measurement&.value
+                = "#{value}#{unit} (#{I18n.l measurement&.time, format: :short})"
+
+/ h2 Map
+/ #map

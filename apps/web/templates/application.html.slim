@@ -1,10 +1,6 @@
 html
   head
     title Air Sensors
-    - Hanami.logger.info Hanami::Assets.configuration.inspect
-    - Hanami.logger.info Hanami::Assets.configuration.manifest_path
-    - Hanami.logger.info File.exist?(Hanami::Assets.configuration.manifest_path)
-
     = favicon
 
     link { rel="stylesheet"
@@ -23,4 +19,12 @@ html
   body
     .container
       = yield
+      div
+        => 'Icons made by'
+        a href="https://www.freepik.com/" title="Freepik" => 'Freepik'
+        => 'from'
+        a href="https://www.flaticon.com" title="Flaticon" => 'www.flaticon.com'
+        => 'is licensed by'
+        a href="http://creativecommons.org/licenses/by/3.0" title="Creative Commons BY 3.0" target="_blank"
+          => 'CC 3.0 BY'
 

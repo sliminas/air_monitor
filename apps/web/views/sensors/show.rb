@@ -1,7 +1,7 @@
 module Web
   module Views
-    module Home
-      class Index
+    module Sensors
+      class Show
         include Web::View
       end
     end
