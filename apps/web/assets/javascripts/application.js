@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let mapId = 'sensor-map'
-  let mapElement = document.getElementById(mapId)
-  if (mapElement === undefined) return
+  let mapId = 'sensor-map';
+  let mapElement = document.getElementById(mapId);
+  if (mapElement === undefined) return;
 
-  let latitude = mapElement.dataset.latitude
-  let longitude = mapElement.dataset.longitude
+  let latitude = mapElement.dataset.latitude;
+  let longitude = mapElement.dataset.longitude;
 
   let leafletMap = L.map(mapId).setView([latitude, longitude], 20);
   L.marker([latitude, longitude]).addTo(leafletMap);
