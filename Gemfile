@@ -8,6 +8,8 @@ gem 'sequel'
 
 gem 'pg'
 
+gem 'pagy'
+
 gem 'http'
 gem 'sentry-raven'
 

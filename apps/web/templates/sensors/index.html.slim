@@ -1,7 +1,7 @@
 h1 Sensors
 
 div
-  table.table.table-striped.table-bordered
+  table.table.table-striped.table-bordered.table-responsive-md
     thead
       tr
         th ID
@@ -25,5 +25,3 @@ div
               - if value = measurement&.value
                 = "#{value}#{unit} (#{I18n.l measurement&.time, format: :short})"
 
-/ h2 Map
-/ #map
