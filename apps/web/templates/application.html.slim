@@ -16,9 +16,13 @@ html
     = stylesheet 'application'
     = javascript 'application'
   body
+    .bg-info
+      .container
+        nav.navbar.navbar-dark
+          a.navbar-brand href="/"
+            = image 'sensor.svg', id: 'sensor-logo'
+            =< 'Air sensor monitor'
     .container
-      nav.navbar.navbar-light.bg-info
-        a.navbar-brand href="/" Air sensor monitor
 
       = yield
       div
