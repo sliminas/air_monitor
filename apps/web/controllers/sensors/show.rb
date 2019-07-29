@@ -20,7 +20,7 @@ module Web
         def pagy_get_vars(collection, vars)
           {
             count: collection.count,
-            page:  params['page'],
+            page:  params[:page],
             items: vars[:items] || 25
           }
         end

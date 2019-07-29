@@ -1,7 +1,7 @@
 h1 = "Sensor #{sensor.id}"
 
 .sensor
-  .sensor-details-data
+  .card.sensor-details-data
     h2 Data
     - location = sensor.geo_location
     dl
@@ -12,12 +12,12 @@ h1 = "Sensor #{sensor.id}"
         dd = location.latitude
         dt Longitude
         dd = location.longitude
-  .sensor-details-map
+  .card.sensor-details-map
     - if location
       h2 Map
       #sensor-map data-latitude=location.latitude data-longitude=location.longitude
 
-  .sensor-measurements
+  .card.sensor-measurements
     h2 Measurements
 
     ul.nav.nav-tabs

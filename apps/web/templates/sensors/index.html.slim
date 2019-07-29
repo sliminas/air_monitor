@@ -15,7 +15,7 @@ div
     tbody
       - AirSensor.all.each do |sensor|
         tr
-          td = link_to sensor.id, routes.sensor_path(sensor.id)
+          td = link_to sensor.id, routes.sensor_path(sensor.id), class: 'btn btn-primary'
           td = sensor.luftdaten_id
           td = sensor.geo_location&.latitude
           td = sensor.geo_location&.longitude

@@ -1,7 +1,17 @@
 .sensor
   display: grid
-  grid-template-columns: 1fr 1fr
+  grid-template-columns: 1fr
+  grid-gap: 1rem
+
+  @media only screen and (min-width: 600px)
+    grid-template-columns: 1fr 1fr
 
 #sensor-map
-  height: 300px
-  width: 300px
+  height: 90vw
+  width: 100%
+  max-width: 400px
+  max-height: 400px
+
+.sensor-measurements
+  @media only screen and (min-width: 600px)
+    grid-column: 1 / span 2

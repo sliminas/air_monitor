@@ -3,18 +3,19 @@ html
     title Air Sensors
     = favicon
 
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
     link { rel="stylesheet"
       href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
       integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
       crossorigin="" }
-
-    link rel="stylesheet" href="/assets/bootstrap.min.css"
 
     script { src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
       integrity= "sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
       crossorigin= "" }
 
     = stylesheet 'application'
+    = stylesheet 'bootstrap'
     = javascript 'application'
   body
     .container
@@ -30,4 +31,7 @@ html
         => 'is licensed by'
         a href="http://creativecommons.org/licenses/by/3.0" title="Creative Commons BY 3.0" target="_blank"
           => 'CC 3.0 BY'
+
+    = javascript 'instantclick.min', data_no_instant: true
+    script data-no-instant='InstantClick.init();'
 

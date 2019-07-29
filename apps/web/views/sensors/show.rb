@@ -7,7 +7,8 @@ module Web
         include Pagy::Frontend
 
         def pagy_url_for(page, pagy)
-          options = { pagy_data.vars[:page_param] => page }.merge(pagy_data.vars[:params])
+          req_params = params.env['rack.request.query_hash'].keep_if { |key, _v| key != 'page' }
+          options = { pagy_data.vars[:page_param] => page }.merge(req_params)
           routes.sensor_path(params[:id], options)
         end
 
