@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+function initializeSensorMap() {
   let mapId = 'sensor-map';
   let mapElement = document.getElementById(mapId);
-  if (mapElement === undefined) return;
+  if (mapElement == undefined) return;
 
   let latitude = mapElement.dataset.latitude;
   let longitude = mapElement.dataset.longitude;
@@ -15,5 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     id: 'mapbox.streets',
     gestureHandling: true
   }).addTo(leafletMap);
-});
+}
+InstantClick.on('change', function () { initializeSensorMap() });
+document.addEventListener('DOMContentLoaded', function () { initializeSensorMap() });
 

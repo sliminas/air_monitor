@@ -8,13 +8,12 @@ html
     = stylesheet 'bootstrap.min'
 
     = stylesheet 'leaflet'
-    = javascript 'leaflet'
-
     = stylesheet 'leaflet-gesture-handling.min'
-    = javascript 'leaflet-gesture-handling.min'
-
     = stylesheet 'application'
-    = javascript 'application'
+
+    = javascript 'leaflet', defer: true
+    = javascript 'leaflet-gesture-handling.min', defer: true
+    = javascript 'application', defer: true
   body
     .bg-info
       .container
@@ -35,5 +34,4 @@ html
           => 'CC 3.0 BY'
 
     = javascript 'instantclick.min', data_no_instant: true
-    script data-no-instant='InstantClick.init();'
-
+    script data-no-instant=true InstantClick.init();
