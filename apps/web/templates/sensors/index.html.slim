@@ -20,7 +20,7 @@ div
           td = sensor.geo_location&.latitude
           td = sensor.geo_location&.longitude
           - { P1: '', P2: '', temperature: '°C', humidity: ' %' }.each do |type, unit|
-            - measurement = sensor.measurements.detect { |measurement| measurement.type = type.to_s }
+            - measurement = sensor.measurements.detect { |mea| mea.type == type.to_s }
             td
               - if value = measurement&.value
                 = "#{value}#{unit} (#{I18n.l measurement&.time, format: :short})"
