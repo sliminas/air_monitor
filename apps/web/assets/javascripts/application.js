@@ -1,12 +1,12 @@
 function initializeSensorMap() {
-  let mapId = 'sensor-map';
-  let mapElement = document.getElementById(mapId);
+  const mapId = 'sensor-map';
+  const mapElement = document.getElementById(mapId);
   if (mapElement == undefined) return;
 
-  let latitude = mapElement.dataset.latitude;
-  let longitude = mapElement.dataset.longitude;
+  const latitude = mapElement.dataset.latitude;
+  const longitude = mapElement.dataset.longitude;
 
-  let leafletMap = L.map(mapId).setView([latitude, longitude], 20);
+  const leafletMap = L.map(mapId).setView([latitude, longitude], 20);
   L.marker([latitude, longitude]).addTo(leafletMap);
 
   L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png ', {

@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/environment'
+Hanami.boot
+
+AirSensor::FetchDataFromLuftdatenApi.(geo_location: GeoLocation.new(latitude: 52.465036, longitude: 13.328644))
