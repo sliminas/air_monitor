@@ -1,2 +1,2 @@
-web: bundle exec hanami assets precompile && bundle exec hanami server -p $PORT --no-code-reloading
+web: bundle exec hanami assets precompile && bundle exec puma -C config/puma.rb
 release: bundle exec rake db:migrate

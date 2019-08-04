@@ -15,7 +15,7 @@ class Database
       connection = ENV['DATABASE_URL'] ||
         'postgres://rails:rails@localhost/air_monitor_development'
 
-      Sequel.connect(connection, max_connections: 10, logger: Logger.new(log_file))
+      Sequel.connect(connection, max_connections: 5, logger: Logger.new(log_file))
     end
 
     def check_pending_migrations
