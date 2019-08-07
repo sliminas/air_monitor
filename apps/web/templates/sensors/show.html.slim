@@ -21,7 +21,7 @@ h1 = "Sensor #{sensor.id}"
     h2 Measurements
 
     ul.nav.nav-tabs
-      - %w(all p1 p2 temperature humidity).each do |type|
+      - %w(all P1 P2 temperature humidity).each do |type|
         - active = 'active' if measurement_type == type
         = link_to type.camelize, routes.sensor_path(sensor.id, type: type), class: "nav-link #{active}"
 
@@ -32,11 +32,10 @@ h1 = "Sensor #{sensor.id}"
           th Value
           th Time
       tbody
-        - units = { P1: '', P2: '', temperature: '°C', humidity: ' %' }
         - measurements.each do |measurement|
           tr
             td = measurement.type.capitalize
             td = "#{measurement.value}#{units[measurement.type.to_sym]}"
-            td = I18n.l measurement&.time, format: :short
+            td = I18n.l measurement.time, format: :short
 
     == pagy_bootstrap_nav pagy_data

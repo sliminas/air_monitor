@@ -5,6 +5,23 @@ module Web
 
         include Web::View
         include Pagy::Frontend
+        include ApexCharts::Helper
+
+        def units
+          { P1: '', P2: '', temperature: '°C', humidity: ' %' }
+        end
+
+        def chart
+          series = measurements.map { |mea| [mea.time, mea.value] }
+          _raw line_chart(
+            series,
+            title: 'Measurements',
+            subtitle: measurement_type.capitalize,
+            ytitle: units[measurement_type.to_sym],
+            xtitle: 'Time',
+            stacked: true
+          )
+        end
 
         def pagy_url_for(page, pagy)
           req_params = params.env['rack.request.query_hash'].keep_if { |key, _v| key != 'page' }
