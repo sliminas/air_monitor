@@ -15,8 +15,7 @@ class Database
       connection = ENV['DATABASE_URL'] ||
         'postgres://rails:rails@localhost/air_monitor_development'
 
-      concurrent_threads = (ENV['WEB_CONCURRENCY'] || 2) * (ENV['RAILS_MAX_THREADS'] || 5)
-      Sequel.connect(connection, max_connections: 100, logger: Logger.new(log_file))
+      Sequel.connect(connection, max_connections: ENV['RAILS_MAX_THREADS'] || 5, logger: Logger.new(log_file))
     end
 
     def check_pending_migrations
