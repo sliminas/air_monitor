@@ -15,6 +15,7 @@ gem 'sentry-raven'
 
 gem 'sass'
 gem 'slim'
+gem 'apexcharts'
 gem 'activesupport'
 gem 'representable'
 gem 'multi_json'

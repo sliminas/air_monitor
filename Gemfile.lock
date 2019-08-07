@@ -8,6 +8,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    apexcharts (0.1.5)
+      smart_kv (= 0.2.7)
     better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -184,6 +186,7 @@ GEM
     slim (4.0.1)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
+    smart_kv (0.2.7)
     temple (0.8.1)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -204,6 +207,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  apexcharts
   capybara
   dotenv (~> 2.4)
   hanami (~> 1.3)

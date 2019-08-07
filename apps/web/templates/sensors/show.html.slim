@@ -17,6 +17,10 @@ h1 = "Sensor #{sensor.id}"
       h2 Map
       #sensor-map data-latitude=location.latitude data-longitude=location.longitude
 
+  - if measurements.present?
+    .card.sensor-measurements
+      == chart
+
   .card.sensor-measurements
     h2 Measurements
 
