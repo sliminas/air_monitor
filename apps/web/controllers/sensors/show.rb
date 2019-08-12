@@ -6,11 +6,15 @@ module Web
         include Web::Action
         include Pagy::Backend
 
-        expose :sensor, :measurements, :measurement_type, :pagy_data
+        expose :sensor, :measurements, :measurement_type, :types, :pagy_data
 
         def call(params)
           @sensor = AirSensor[params[:id]]
-          @measurement_type = params[:type] || 'temperature'
+          @types = %w(temperature P1 P2 humidity).map do |type|
+            type unless sensor.measurements_dataset.where(type: type).empty?
+          end.compact
+
+          @measurement_type = params[:type] || @types.first
           measurements = @sensor.measurements_dataset.reverse(:created_at)
           measurements = measurements.where(type: @measurement_type)
 

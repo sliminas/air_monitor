@@ -15,8 +15,6 @@ module Web
           series = measurements.map { |mea| [mea.time, mea.value] }
           _raw area_chart(
             series,
-            title: 'Measurements',
-            subtitle: measurement_type.capitalize,
             ytitle: units[measurement_type.to_sym],
             xtitle: 'Time',
             stacked: true

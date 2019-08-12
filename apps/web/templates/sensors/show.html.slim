@@ -15,12 +15,13 @@ h1 = "Sensor #{sensor.id}"
   .card.sensor-details-map
     - if location
       h2 Map
-      #sensor-map data-latitude=location.latitude data-longitude=location.longitude
+      #sensor-map { data-latitude=location.latitude data-longitude=location.longitude
+        data-marker-icon=asset_path('marker-icon.png', as: :image) }
 
   .card.sensor-measurements
     h2 Measurements
     ul.nav.nav-tabs
-      - %w(temperature P1 P2 humidity).each do |type|
+      - types.each do |type|
         - active = 'active' if measurement_type == type
         = link_to type.camelize, routes.sensor_path(sensor.id, type: type), class: "nav-link #{active}"
     - if measurements.present?
