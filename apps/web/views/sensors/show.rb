@@ -13,7 +13,7 @@ module Web
 
         def chart
           series = measurements.map { |mea| [mea.time, mea.value] }
-          _raw line_chart(
+          _raw area_chart(
             series,
             title: 'Measurements',
             subtitle: measurement_type.capitalize,

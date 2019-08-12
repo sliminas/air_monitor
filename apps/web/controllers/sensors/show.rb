@@ -10,9 +10,9 @@ module Web
 
         def call(params)
           @sensor = AirSensor[params[:id]]
-          @measurement_type = params[:type] || 'all'
+          @measurement_type = params[:type] || 'temperature'
           measurements = @sensor.measurements_dataset.reverse(:created_at)
-          measurements = measurements.where(type: @measurement_type) if @measurement_type != 'all'
+          measurements = measurements.where(type: @measurement_type)
 
           @pagy_data, @measurements = pagy measurements
         end
@@ -21,7 +21,7 @@ module Web
           {
             count: collection.count,
             page:  params[:page],
-            items: vars[:items] || 25
+            items: vars[:items] || 100
           }
         end
 
