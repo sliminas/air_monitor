@@ -10,7 +10,7 @@ module Web
 
         def call(params)
           @sensor = AirSensor[params[:id]]
-          @types = %w(temperature P1 P2 humidity).map do |type|
+          @types = %w(temperature P1 P2).map do |type|
             type unless sensor.measurements_dataset.where(type: type).empty?
           end.compact
 

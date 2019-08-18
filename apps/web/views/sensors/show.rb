@@ -8,7 +8,7 @@ module Web
         include ApexCharts::Helper
 
         def units
-          { P1: '', P2: '', temperature: '°C', humidity: ' %' }
+          { P1: '', P2: '', temperature: '°C' }
         end
 
         def chart

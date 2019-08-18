@@ -25,7 +25,7 @@ class AirSensor < Sequel::Model
         sensor.geo_location = location
 
         data.measurements&.each do |measurement|
-          next if measurement.luftdaten_id.blank?
+          next if measurement.luftdaten_id.blank? || measurement.type == 'humidity'
 
           AirSensor::Measurement.
             update_or_create measurement.values.merge(air_sensor_id: sensor.id, time: data.time)

@@ -11,7 +11,6 @@ div
         th P1
         th P2
         th Temp
-        th Humidity
     tbody
       - AirSensor.all.each do |sensor|
         tr
@@ -19,7 +18,7 @@ div
           td = sensor.luftdaten_id
           td = sensor.geo_location&.latitude
           td = sensor.geo_location&.longitude
-          - { P1: '', P2: '', temperature: '°C', humidity: ' %' }.each do |type, unit|
+          - { P1: '', P2: '', temperature: '°C' }.each do |type, unit|
             - measurement = sensor.measurements.reverse.detect { |mea| mea.type == type.to_s }
             td
               - if value = measurement&.value
