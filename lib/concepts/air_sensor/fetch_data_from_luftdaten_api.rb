@@ -24,7 +24,7 @@ class AirSensor < Sequel::Model
         location            = GeoLocation.update_or_create data.geo_location.values, air_sensor_id: sensor.id
         sensor.geo_location = location
 
-        data.measurements&.each do |measurement|
+        data.measurements.uniq(&:type)&.each do |measurement|
           next if measurement.luftdaten_id.blank? || measurement.type == 'humidity'
 
           AirSensor::Measurement.
