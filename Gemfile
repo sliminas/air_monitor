@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.6.3'
-
 gem 'rake'
 gem 'hanami', '~> 1.3'
 gem 'sequel'
@@ -38,5 +36,5 @@ group :test do
 end
 
 group :production do
-  gem 'puma'
+  gem 'puma', '< 5'
 end
